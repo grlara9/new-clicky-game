@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-
+import Header from './header/header';
 const ImageGame = () => {
   const [images, setImages] = useState([]);
   const [score, setScore] = useState(0);
@@ -18,7 +18,6 @@ const ImageGame = () => {
   const fetchImages = async () => {
     try {
       const response = await fetch(`https://api.unsplash.com/photos/random?query=stadium&count=12&client_id=${apikey}`)
-      
       if(!response.ok){
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -49,6 +48,8 @@ const ImageGame = () => {
     }
   };
 
+  
+
   const resetGame = () => {
     setScore(0);
     setClickedIds([]);
@@ -62,16 +63,14 @@ const ImageGame = () => {
 
   return (
     <div>
-      <h1>Clicky Game</h1>
-      <p>Score: {score}</p>
-      <p>Top Score: {topScore}</p>
+      <Header score={score} highscore={topScore}/>
       <div className="image-container">
         {images.map((image, index) => (
           <img
             key={image.id} // Generate a unique key for each image
             src={image.urls.small}
             alt={image.urls.regular}
-            onClick={() => handleClick(image.id)}
+            onClick={() =>  handleClick(image.id)}
           />
         ))}
       </div>
