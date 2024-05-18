@@ -1,0 +1,10 @@
+/* Grid Styles */
+
+.grid-4{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+  }
+  

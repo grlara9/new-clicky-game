@@ -6,13 +6,29 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    color: #fff;
 }
 
 .header_scores{
     display: flex;
     justify-content: space-around;
+    
 }
 
 .header_scores p{
     margin-left: 16px;
+}
+
+@media (max-width: 720px) {
+    h1{
+        font-size: 36px;
+    }
+    .header{
+        flex-direction: column;
+        margin-top: 16px;
+    }
+   
+    .font{
+        font-size: 20px; 
+    }
 }

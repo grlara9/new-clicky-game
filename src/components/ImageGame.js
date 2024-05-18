@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import Header from './header/header';
+import Game from './game/game';
+import Container from './container/container';
+
 const ImageGame = () => {
   const [images, setImages] = useState([]);
   const [score, setScore] = useState(0);
@@ -63,17 +66,19 @@ const ImageGame = () => {
 
   return (
     <div>
+      <Container>
       <Header score={score} highscore={topScore}/>
       <div className="image-container">
         {images.map((image, index) => (
-          <img
+          <img width={350} height={350}
             key={image.id} // Generate a unique key for each image
             src={image.urls.small}
             alt={image.urls.regular}
-            onClick={() =>  handleClick(image.id)}
+            onClick={()=> handleClick(image.id)}
           />
         ))}
       </div>
+    </Container>
     </div>
   );
 };
